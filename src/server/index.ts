@@ -7,7 +7,7 @@ import runRendererServer from './server/runRendererServer'
 import { PORT } from '../../config'
 import * as electron from 'electron'
 import compileMain from './compileMain'
-import { __PROD__ } from './store/global'
+import { __DEV__ } from './store/global'
 
 const { MAIN_OUTPUT_FILE } = PATHS
 
@@ -16,7 +16,7 @@ const electronPath: any = electron
 
 
 
-console.log( '__PROD__', __PROD__ )
+console.log( '__DEV__', __DEV__ )
 // runRendererServer()
 
 // boolean `true` or `false` is used for debugging

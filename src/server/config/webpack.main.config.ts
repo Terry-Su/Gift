@@ -1,15 +1,14 @@
 import PATHS from "../constants/paths"
-import { MAIN_OUTPUT_FILE_NAME } from "../constants/names"
+import { MAIN_OUTPUT_FILE_NAME, WEBPACK_MODE } from "../constants/names"
+import { __DEV__ } from "../store/global"
 const {
   MAIN_ENTRY,
   MAIN_OUTPUT,
   MAIN_TS_CONFIG
 } = PATHS
 
-console.log( MAIN_TS_CONFIG )
-
 const webpackMainConfig = {
-  mode  : 'development',
+  mode  : WEBPACK_MODE,
   target: 'electron-main',
   entry : MAIN_ENTRY,
   output: {

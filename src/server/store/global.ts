@@ -1,1 +1,1 @@
-export const __PROD__ = global[ '__PROD__' ]
+export const __DEV__ = global[ '__DEV__' ]
