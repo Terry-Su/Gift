@@ -12,6 +12,7 @@
     "react-hot-loader": "^4.3.5",
     "serve-index": "^1.9.1",
     "ts-loader": "^4.5.0",
+    "ts-node": "^7.0.1",
     "typescript": "^3.0.3",
     "typescript-eslint-parser": "^18.0.0",
     "webpack": "^4.17.1",
@@ -24,10 +25,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "npm run eletron & npm run render",
-    "dev": "node scripts/index.js",
-    "electron": "electron .",
-    "render": "webpack --mode development --watch --config scripts/webpack.render.config.js"
+    "start": "ts-node src/server/index.ts --project src/server/tsconfig.json"
   },
   "repository": {
     "type": "git",

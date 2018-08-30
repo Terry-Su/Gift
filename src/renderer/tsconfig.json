@@ -1,12 +1,12 @@
 {
-  "include": ["src/**/*"],
+  "include": ["./**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "module": "es6",
 		"target": "es5",
 		"jsx": "react",
     "allowJs": true,
-    "outDir": "./build/",
+    "outDir": "../../build/",
     "sourceMap": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,

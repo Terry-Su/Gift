@@ -1,5 +1,7 @@
 # output
 build
+build-renderer
+build-main
 
 # Logs
 logs

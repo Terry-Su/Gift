@@ -1,17 +1,15 @@
+import PATHS from "../constants/paths"
+
 const express = require( 'express' )
 const PATH = require( 'path' )
 const { resolve: resolvePath } = PATH
 const webpack = require( 'webpack' )
-const webpackConfig = require( './webpack.render.config.js' )
+import webpackConfig from '../config/webpack.renderer.config'
+import { PORT } from "../../../config"
 
-const PATHS = {}
-PATHS.ROOT = resolvePath( __dirname, '../' )
-PATHS.OUTPUT = resolvePath( PATHS.ROOT, 'build' )
-PATHS.INDEX_HTML = resolvePath( PATHS.OUTPUT, 'index.html' )
+const { RENDERER_OUTPUT, RENDERER_OUTPUT_INDEX_HTML } = PATHS
 
-const { port } = require( './config.js' )
-
-module.exports = () => {
+export default function() {
   const app = express()
   const compiler = webpack( webpackConfig )
   
@@ -25,12 +23,12 @@ module.exports = () => {
   
   app.use( require( 'webpack-hot-middleware' )( compiler ) )
   
-  app.use( '/build', express.static( PATHS.OUTPUT ) )
+  app.use( '/build', express.static( RENDERER_OUTPUT ) )
   
   
   app.get( "/", ( req, res ) => {
-    res.sendFile( PATHS.INDEX_HTML )
+    res.sendFile( RENDERER_OUTPUT_INDEX_HTML )
   } )
   
-  app.listen( port, () => { console.log( `listening on the port ${ port }` ) } )  
+  app.listen( PORT, () => { console.log( `listening on the port ${ PORT }` ) } )  
 }
