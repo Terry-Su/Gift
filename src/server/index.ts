@@ -10,7 +10,6 @@ const { MAIN_OUTPUT_FILE } = PATHS
 const electronPath: any = electron
 
 runRendererServer()
-compileMain( () => {
-  console.log( 'to run' )
-  spawn( electronPath, [ `--inspect=${ PORT }`, MAIN_OUTPUT_FILE ] )
-} )
+
+// boolean `true` or `false` is used for debugging
+compileMain( () => true && spawn( electronPath, [ `--inspect=${ PORT }`, MAIN_OUTPUT_FILE ] ) )

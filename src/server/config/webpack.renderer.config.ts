@@ -11,7 +11,8 @@ const {
   WEBPACK_HOT_MIDDLEWARE,
   RENDERER_OUTPUT,
   RENDERER_INDEX_HTML,
-  RENDERER_OUTPUT_INDEX_HTML
+  RENDERER_OUTPUT_INDEX_HTML,
+  RENDERER_TS_CONFIG,
 } = PATHS
 
 const webpackClientConfig = {
@@ -34,7 +35,10 @@ const webpackClientConfig = {
       {
         test: /\.ts|\.tsx$/,
         use : {
-          loader: 'ts-loader',
+          loader : 'ts-loader',
+          options: {
+            configFile: RENDERER_TS_CONFIG
+          }
         },
         exclude: /node_modules/
       },

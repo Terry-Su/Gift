@@ -30,5 +30,5 @@ export default function() {
     res.sendFile( RENDERER_OUTPUT_INDEX_HTML )
   } )
   
-  app.listen( PORT, () => { console.log( `listening on the port ${ PORT }` ) } )  
+  app.listen( PORT, () => { console.log( `listening on the http://localhost:${ PORT }` ) } )  
 }

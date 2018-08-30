@@ -1,15 +1,12 @@
 import PATHS from "../constants/paths"
-import { RENDERER_OUTPUT_FILE_NAME, MAIN_OUTPUT_FILE_NAME } from "../constants/names"
-
-const webpack = require( 'webpack' )
-const CopyWebpackPlugin = require( "copy-webpack-plugin" )
-const CleanWebpackPlugin = require( "clean-webpack-plugin" )
-
-
+import { MAIN_OUTPUT_FILE_NAME } from "../constants/names"
 const {
   MAIN_ENTRY,
-  MAIN_OUTPUT
+  MAIN_OUTPUT,
+  MAIN_TS_CONFIG
 } = PATHS
+
+console.log( MAIN_TS_CONFIG )
 
 const webpackMainConfig = {
   mode  : 'development',
@@ -25,7 +22,10 @@ const webpackMainConfig = {
       {
         test: /\.ts$/,
         use : {
-          loader: 'ts-loader',
+          loader : 'ts-loader',
+          options: {
+            configFile: MAIN_TS_CONFIG
+          },
         },
         exclude: /node_modules/
       },
@@ -34,7 +34,8 @@ const webpackMainConfig = {
   resolve: {
     extensions: [
       '.ts',
-      '.js'
+      '.js',
+      '.json'
     ]
   },
 }

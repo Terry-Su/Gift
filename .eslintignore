@@ -3,4 +3,6 @@
 
 # Build results
 build
+build-main
+build-renderer
 

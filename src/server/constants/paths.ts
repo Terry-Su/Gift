@@ -1,5 +1,5 @@
 import * as PATH from 'path'
-import { MAIN_OUTPUT_FILE_NAME } from './names'
+import { MAIN_OUTPUT_FILE_NAME, TSCONFIG_FILE_NAME } from './names'
 const { resolve } = PATH
 
 
@@ -33,6 +33,13 @@ class PATHS_CLASS {
 
   // webpack
   WEBPACK_HOT_MIDDLEWARE = `webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000`
+
+
+
+  // tsconfig
+  MAIN_TS_CONFIG = resolve( this.MAIN, TSCONFIG_FILE_NAME )
+
+  RENDERER_TS_CONFIG = resolve( this.RENDERER, TSCONFIG_FILE_NAME )
 }
 
 const PATHS: PATHS_CLASS = new PATHS_CLASS()
