@@ -1,0 +1,1 @@
+export const __PROD__ = global[ '__PROD__' ]

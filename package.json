@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "ts-node src/server/index.ts --project src/server/tsconfig.json"
+    "start": "cross-env NODE_ENV=development ts-node src/server/index.ts --project src/server/tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "@types/react-dom": "^16.0.7",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
+    "cross-env": "^5.2.0",
     "electron": "^2.0.8",
     "electron-devtools-installer": "^2.2.4",
     "eslint": "^5.4.0",
