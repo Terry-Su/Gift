@@ -1,2 +1,2 @@
 # Gift
-A gift powered by electron and three.js
+A virtual gift powered by electron, react and three.js
