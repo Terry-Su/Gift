@@ -2,7 +2,7 @@ const { electron } = require( 'electron' )
 const { spawn } = require( 'child_process' )
 const PATH = require( 'path' )
 const { resolve: resolvePath } = PATH
-const { runServer } = require( './server.js' )
+const runServer = require( './runServer.js' )
 const { port } = require( './config' )
 
 

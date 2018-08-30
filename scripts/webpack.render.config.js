@@ -3,27 +3,32 @@ const { resolve } = PATH
 const webpack = require( 'webpack' )
 const CopyWebpackPlugin = require( "copy-webpack-plugin" )
 const CleanWebpackPlugin = require( "clean-webpack-plugin" )
+const { port } = require( './config' )
 
 const PATHS = {}
 PATHS.ROOT = resolve( __dirname, '../' )
 PATHS.SRC = resolve( PATHS.ROOT, 'src' )
-PATHS.BUILD = resolve( PATHS.ROOT, 'build' )
+PATHS.OUTPUT = resolve( PATHS.ROOT, 'build' )
 PATHS.RENDER = resolve( PATHS.SRC, 'render' )
 PATHS.RENDER_ENTRY = resolve( PATHS.RENDER, 'entry' )
-PATHS.RENDER_OUTPUT = resolve( PATHS.BUILD, '' )
 PATHS.FROM_RENDER_INDEX_HTML = resolve( PATHS.RENDER, 'index.html' )
-PATHS.TO_RENDER_INDEX_HTML = resolve( PATHS.BUILD, 'index.html' )
-PATHS.WEBPACK_HOT_MIDDLEWARE = "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000" 
+PATHS.TO_RENDER_INDEX_HTML = resolve( PATHS.OUTPUT, 'index.html' )
+PATHS.WEBPACK_HOT_MIDDLEWARE = `webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000`
 const OUTPUT_FILE_NAME = 'bundle.js'
 
 module.exports = {
+  mode  : 'development',
   target: 'electron-renderer',
   entry : {
-    [ OUTPUT_FILE_NAME ]: [ PATHS.RENDER_ENTRY, PATHS.WEBPACK_HOT_MIDDLEWARE ]
+    [ OUTPUT_FILE_NAME ]: [ 
+      PATHS.RENDER_ENTRY,
+      PATHS.WEBPACK_HOT_MIDDLEWARE,   
+    ]
   },
   output: {
-    filename: '[name]',
-    path    : PATHS.RENDER_OUTPUT,
+    path      : PATHS.OUTPUT,
+    filename  : '[name]',
+    publicPath: '/'
   },
   devtool: 'source-map',
   module : {
@@ -48,14 +53,15 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin( [ PATHS.BUILD ] ),
+    // new CleanWebpackPlugin( [ PATHS.OUTPUT ] ),
     new CopyWebpackPlugin( [
       {
         from: PATHS.FROM_RENDER_INDEX_HTML,
         to  : PATHS.TO_RENDER_INDEX_HTML
       }
     ],
-    [ new webpack.HotModuleReplacementPlugin() ]
-   )
+   ),
+
+   new webpack.HotModuleReplacementPlugin()
   ]
 }
