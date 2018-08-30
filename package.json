@@ -1,0 +1,41 @@
+{
+  "devDependencies": {
+    "@types/react": "^16.4.13",
+    "@types/react-dom": "^16.0.7",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
+    "electron": "^2.0.8",
+    "eslint": "^5.4.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-hot-loader": "^4.3.5",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.3",
+    "typescript-eslint-parser": "^18.0.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.2.0",
+    "webpack-hot-middleware": "^2.22.3"
+  },
+  "name": "gift",
+  "description": "A gift powered by electron and three.js",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm run eletron & npm run render",
+    "dev": "node scripts/index",
+    "electron": "electron .",
+    "render": "webpack --mode development --watch --config scripts/webpack.render.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terry-Su/gift.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Terry-Su/gift/issues"
+  },
+  "homepage": "https://github.com/Terry-Su/gift#readme"
+}
