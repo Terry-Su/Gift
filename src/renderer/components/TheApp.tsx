@@ -1,8 +1,11 @@
 import React, { Component } from "react"
+import TheCounter from "./TheCounter";
 
 
 export default class TheApp extends Component<any, any> {
     render() {
-      return <div>App1</div>
+      return <div>
+        <TheCounter />
+      </div>
     }
 }

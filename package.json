@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development ts-node src/server/index.ts --project src/server/tsconfig.json"
+    "start": "cross-env NODE_ENV=development ts-node src/server/index.ts --project src/server/tsconfig.json",
+    "build": "ts-node src/server/index.ts --project src/server/tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -18,15 +19,20 @@
   },
   "homepage": "https://github.com/Terry-Su/gift#readme",
   "devDependencies": {
+    "@types/lodash": "^4.14.116",
+    "@types/node": "^10.9.4",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
+    "@types/webpack-env": "^1.13.6",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
+    "dva": "^2.4.0",
     "electron": "^2.0.8",
     "electron-devtools-installer": "^2.2.4",
     "eslint": "^5.4.0",
     "express": "^4.16.3",
+    "lodash": "^4.17.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.5",

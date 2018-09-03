@@ -16,8 +16,5 @@ const electronPath: any = electron
 
 
 
-console.log( '__DEV__', __DEV__ )
-// runRendererServer()
-
-// boolean `true` or `false` is used for debugging
-// compileMain( () => true && spawn( electronPath, [ `--inspect=${ PORT }`, MAIN_OUTPUT_FILE ] ) )
+runRendererServer()
+compileMain( () => spawn( electronPath, [ `--inspect=${ PORT }`, MAIN_OUTPUT_FILE ] ) )

@@ -1,5 +1,6 @@
 import PATHS from "../constants/paths"
 import { RENDERER_OUTPUT_FILE_NAME } from "../constants/names"
+import { __DEV__ } from "../store/global"
 
 const webpack = require( 'webpack' )
 const CopyWebpackPlugin = require( "copy-webpack-plugin" )
@@ -16,7 +17,7 @@ const {
 } = PATHS
 
 const webpackClientConfig = {
-  mode  : 'development',
+  mode  : __DEV__ ? 'development' : 'production',
   target: 'electron-renderer',
   entry : {
     [ RENDERER_OUTPUT_FILE_NAME ]: [ 
@@ -29,7 +30,7 @@ const webpackClientConfig = {
     filename  : '[name]',
     publicPath: '/'
   },
-  devtool: 'source-map',
+  devtool: __DEV__ ? 'source-map' : false,
   module : {
     rules: [
       {
@@ -52,7 +53,6 @@ const webpackClientConfig = {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin( [ RENDERER_OUTPUT ] ),
     new CopyWebpackPlugin( [
       {
         from: RENDERER_INDEX_HTML,

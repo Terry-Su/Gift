@@ -1,5 +1,5 @@
 import PATHS from "../constants/paths"
-import { MAIN_OUTPUT_FILE_NAME, WEBPACK_MODE } from "../constants/names"
+import { MAIN_OUTPUT_FILE_NAME } from "../constants/names"
 import { __DEV__ } from "../store/global"
 const {
   MAIN_ENTRY,
@@ -8,14 +8,14 @@ const {
 } = PATHS
 
 const webpackMainConfig = {
-  mode  : WEBPACK_MODE,
+  mode  : 'development',
   target: 'electron-main',
   entry : MAIN_ENTRY,
   output: {
     path    : MAIN_OUTPUT,
     filename: MAIN_OUTPUT_FILE_NAME,
   },
-  devtool: 'source-map',
+  devtool: __DEV__ ? 'source-map' : false,
   module : {
     rules: [
       {
